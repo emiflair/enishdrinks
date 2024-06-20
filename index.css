@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  color: #000000;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+header {
+  padding: 30px 0;
+}
+
+.logo {
+  max-width: 250px;
+}
+
+.image-viewer-container {
+  width: 90%;
+  margin: 5px auto;
+  text-align: center;
+  background-color: #000000;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-image: linear-gradient(45deg, #c19632, #c29b3a, #bf8e33);
+  background-size: 200% 200%;
+  animation: rotateColors 15s linear infinite;
+}
+
+@keyframes rotateColors {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.page-image {
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 80%;
+  color: #fff;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.popup #promo-text {
+  color: #f2b634;
+  text-shadow: 2px 2px 5px #000000;
+}
+
+.close-btn {
+  color: #f5f3f3;
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+footer {
+  padding: 20px 0;
+}
+
+.social-media-icons {
+  list-style-type: none;
+  padding: 0;
+}
+
+.social-media-icons li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.social-media-icons li a img {
+  width: 60px;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.social-media-icons li a img:hover {
+  transform: scale(1.1);
+}
+
+/* Adjust image height for mobile devices */
+@media (max-width: 768px) {
+  .page-image {
+    height: auto;
+    max-width: 100%;
+  }
+}
+
+.pdf-link {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f1f1f1;
+  color: #000;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.pdf-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0);
+  z-index: 1;
+}
