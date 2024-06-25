@@ -34,6 +34,16 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+        function checkTimeAndShowPromo() {
+        const now = new Date();
+        const hours = now.getHours();
+        if (hours === 3) {
+            showPromo();
+        } else {
+            promoPopup.style.display = "none";
+        }
+    }
+
     closeBtn.addEventListener("click", function() {
         promoPopup.style.display = "none";
     });
