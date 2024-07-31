@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const promos = {
         "Monday": "Unplugged Monday: Happy hour 4pm - 11pm!",
-        "Tuesday": "Tuesday Ladies Night: Two Free Drinks Happy Hour 4pm - 11pm!",
+        "Tuesday": "Tuesday Ladies Night: Two Free Drinks & Happy Hour 4pm - 11pm!",
         "Wednesday": "Wednesday Rhythm Night: Happy hour 4pm - 11pm!",
         "Thursday": "Thursday Eko Night: Happy hour 4pm - 11pm!!",
         "Friday": "Lalale Friday: Happy hour 4pm - 11pm!!",
