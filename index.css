@@ -40,38 +40,54 @@ header {
   border-radius: 20px;
 }
 
+/* Updated styles for the popup at the bottom of the screen */
 .popup {
-  display: none;
+  display: none; /* Initially hidden */
   position: fixed;
-  z-index: 9999;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.8);
+  bottom: 0; /* Stick the popup to the bottom */
+  left: 50%; /* Center the popup horizontally */
+  transform: translateX(-50%); /* Center the popup */
+  background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent background */
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0; /* Rounded corners only at the top */
   text-align: center;
-  max-width: 80%;
+  width: 90%; /* Make it wide but not full screen */
+  max-width: 500px; /* Limit max width */
   color: #fff;
-  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  font-family: Arial, sans-serif; /* More neutral font for better readability */
   font-weight: bold;
-  font-size: 2em;
+  font-size: 1.2em; /* Adjust font size */
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.5); /* Add shadow at the top for depth */
+  z-index: 9999; /* Ensure it's above other elements */
 }
 
+/* Promo text style */
 .popup #promo-text {
   color: #f2b634;
   text-shadow: 2px 2px 5px #000000;
 }
 
+/* Close button */
 .close-btn {
   color: #f5f3f3;
-  font-size: 50px;
+  font-size: 24px; /* Smaller close button */
   font-weight: bold;
   cursor: pointer;
   position: absolute;
   top: 10px;
   right: 10px;
 }
+
+/* Optional: Fade-in effect */
+.popup {
+  opacity: 0;
+  transition: opacity 5.5s ease-in-out; /* Fade-in transition */
+}
+
+.popup.show {
+  opacity: 1;
+}
+
 
 footer {
   padding: 20px 0;
@@ -104,3 +120,19 @@ footer {
     max-width: 100%;
   }
 }
+
+.page-image {
+  pointer-events: none; /* Prevent any mouse events on images */
+  user-select: none; /* Disable text selection */
+}
+
+.image-viewer-container {
+  display: flex; /* Use flexbox to display images in a row */
+  flex-wrap: wrap; /* Allow wrapping of images to the next line */
+}
+
+.image-viewer-container img {
+  pointer-events: auto; /* Re-enable events for the image elements */
+}
+
+
