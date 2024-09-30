@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const promos = {
         "Monday": "Unplugged Monday: Happy hour 4pm - 11pm!",
-        "Tuesday": "Tuesday Ladies Night: Two Free Drinks & Happy Hour 4pm - 11pm!",
+        "Tuesday": "Tuesday Ladies Night: Two Free Drinks Happy Hour 4pm - 11pm!",
         "Wednesday": "Wednesday Rhythm Night: Happy hour 4pm - 11pm!",
         "Thursday": "Thursday Eko Night: Happy hour 4pm - 11pm!!",
         "Friday": "Lalale Friday: Happy hour 4pm - 11pm!!",
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
         "Sunday": "Blackout Sunday: Happy hour 4pm - 11pm!!"
     };
 
-    const typingDelay = 100; // Adjust typing delay (milliseconds)
+    const typingDelay = 100; // Typing delay in milliseconds
 
     function typeText(text) {
         let index = 0;
@@ -27,30 +27,32 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function showPromo() {
-        const today = new Date().toLocaleString('en-us', { weekday: 'long' });
-        if (promos[today]) {
-            promoPopup.style.display = "block"; // Show the popup
-            typeText(promos[today]); // Start typing out the text
-        }
-    }
+        const today = new Date();
+        const currentHour = today.getHours(); // Get the current hour
+        let promoDay;
 
-        function checkTimeAndShowPromo() {
-        const now = new Date();
-        const hours = now.getHours();
-        if (hours === 3) {
-            showPromo();
-        } else {
-            promoPopup.style.display = "none";
+        if (currentHour < 4) {
+            // If it's before 4 AM, show the promo for the previous day
+            today.setDate(today.getDate() - 1); // Go to the previous day
+        }
+        
+        // Get the day of the week
+        promoDay = today.toLocaleString('en-us', { weekday: 'long' });
+
+        if (promos[promoDay]) {
+            promoPopup.classList.add("show"); // Apply the "show" class for fade-in effect
+            promoPopup.style.display = "block"; // Make the popup visible
+            promoText.textContent = ""; // Clear previous text
+            typeText(promos[promoDay]); // Start typing the promo text
         }
     }
 
     closeBtn.addEventListener("click", function() {
-        promoPopup.style.display = "none";
+        promoPopup.style.display = "none"; // Hide the popup when close button is clicked
     });
 
-    // Show the promo popup automatically
+    // Automatically show the promo popup after 10 seconds
     setTimeout(function() {
-        showPromo(); // Start the loop
+        showPromo(); // Trigger the promo popup
     }, 10000);
 });
-
